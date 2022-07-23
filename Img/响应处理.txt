@@ -1,0 +1,7 @@
+JSONObject jsonObject = JSONObject.parseObject(response);
+String result = (String)jsonObject.get("result");
+result=result.replace("\\", "");
+System.out.println("result处理后:"+result);
+JSONObject resultJson = JSONObject.parseObject(result);
+String file = (String)resultJson.get("file");
+byte[] bytes = Base64.decodeBase64(file);
